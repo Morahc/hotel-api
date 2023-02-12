@@ -9,8 +9,7 @@ export const getRooms = async (req, res, next) => {
   try {
     const rooms = await services.getRoom({
       name: { $regex: search, $options: 'i' },
-      price: { $gt: minPrice, $lt: maxPrice },
-      roomType: { name: roomType },
+      price: { $gt: minPrice, $lt: maxPrice }
     });
     return res.status(200).json(rooms);
   } catch (error) {
