@@ -1,4 +1,4 @@
-import * as services from '../services/roomType.js';
+import * as services from '../services/roomType.services.js';
 
 export const getRoomTypes = async (req, res, next) => {
   try {

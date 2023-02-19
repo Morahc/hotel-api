@@ -16,14 +16,14 @@ Run `npm run dev` to run in development mode.
 
 - GET `/api/v1/rooms`
 - GET `/api/v1/rooms/:id`
-- POST `/api/v1/rooms`
-- PATCH `/api/v1/rooms/:id`
-- DELETE `/api/v1/rooms/:id`
+- POST `/api/v1/rooms`  [Auth required]
+- PATCH `/api/v1/rooms/:id` [Auth required]
+- DELETE `/api/v1/rooms/:id` [Auth required]
 
 ### Room-types
 
 - GET `/api/v1/rooms-types`
-- POST `/api/v1/rooms-types`
+- POST `/api/v1/rooms-types` [Auth requied]
 
 ## Data Schema
 

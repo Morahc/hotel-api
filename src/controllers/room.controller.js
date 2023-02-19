@@ -1,4 +1,4 @@
-import * as services from '../services/room.js';
+import * as services from '../services/room.services.js';
 
 export const getRooms = async (req, res, next) => {
   const search = req.query.search || '';
@@ -9,7 +9,8 @@ export const getRooms = async (req, res, next) => {
   try {
     const rooms = await services.getRoom({
       name: { $regex: search, $options: 'i' },
-      price: { $gt: minPrice, $lt: maxPrice }
+      price: { $gt: minPrice, $lt: maxPrice },
+    //  'roomType.name' : roomType,
     });
     return res.status(200).json(rooms);
   } catch (error) {
@@ -24,7 +25,7 @@ export const getRoom = async (req, res, next) => {
 
     return res.status(200).json(room);
   } catch (error) {
-    next({ status: 404, message: 'Room was not found' });
+    next(error);
   }
 };
 

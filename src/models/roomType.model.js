@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const roomTypeSchema = mongoose.Schema({
   name: {
     type: String,
-    required: [true, 'This field is required'],
+    required: [true, 'Name field is required'],
   }
 });
 
