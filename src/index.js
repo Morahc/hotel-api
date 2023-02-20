@@ -9,7 +9,7 @@ const app = express();
 connectDb();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}))
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/v1/rooms', room);
 app.use('/api/v1/rooms-types', roomType);

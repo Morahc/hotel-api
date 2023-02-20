@@ -4,13 +4,13 @@ export const getRooms = async (req, res, next) => {
   const search = req.query.search || '';
   const minPrice = req.query.minPrice || 0;
   const maxPrice = req.query.maxPrice || Infinity;
-  const roomType = req.query.roomType || '';
+  // const roomType = req.query.roomType || '*';
 
   try {
     const rooms = await services.getRoom({
       name: { $regex: search, $options: 'i' },
       price: { $gt: minPrice, $lt: maxPrice },
-    //  'roomType.name' : roomType,
+      // roomType: roomType 
     });
     return res.status(200).json(rooms);
   } catch (error) {

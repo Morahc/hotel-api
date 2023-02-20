@@ -26,7 +26,15 @@ export const createRoom = async (input) => {
 };
 
 export const updateRoom = async (id, update) => {
-  return await Room.findByIdAndUpdate(id, update);
+  try {
+    await Room.findByIdAndUpdate(id, update);
+  } catch (error) {
+    if (error.name == 'CastError') {
+      throw { message: `Room with id ${id} doesn't exist`, status: 404 };
+    } else {
+      throw Error({ status: 400, message: "Room couldn't be updated" });
+    }
+  }
 };
 
 export const deleteRoom = async (id) => {
